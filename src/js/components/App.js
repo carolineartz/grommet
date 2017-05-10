@@ -13,7 +13,8 @@ const CLASS_ROOT = CSSClassnames.APP;
 let supportedLocales = ['en-US', 'pt-BR'];
 
 function localesSupported() {
-  return global.Intl && supportedLocales.every(function (locale) {
+  var gl = global || {};
+  return gl.Intl && supportedLocales.every(function (locale) {
     return Intl.NumberFormat.supportedLocalesOf(locale)[0] === locale &&
             Intl.DateTimeFormat.supportedLocalesOf(locale)[0] === locale;
   });
